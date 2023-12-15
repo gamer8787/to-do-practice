@@ -1,4 +1,68 @@
 /* @charset "EUC-KR"; */
-div {	
-	background-color: red;
+html, body, section{
+	height: 100%;
+}
+
+#headerwrap{
+    overflow:auto;
+    margin-bottom : 30px;
+}
+
+a#header{
+	background-color: rgb(53, 177, 80);
+	float:right;
+	width:12% ;
+	font-size : 15px;
+	color : blue;
+	text-align: center;
+	padding : 20px 20px;
+	margin : 2% 2% 2% 0;
+}
+
+
+.left, .middle, .right{
+	float:left;
+	height:100%;
+	background-color: rgb(216, 193, 231);
+}
+
+section > div{
+	width: 30%;
+	text-align: left;
+	margin-left: 2%;
+}
+
+section > div.left{
+	margin-left: 5%;
+} 
+
+ul{
+	height : 100%;
+}
+
+li{
+	font-size :25px;
+	display: block;
+	margin-bottom: 5%;
+	padding : 0 0 0 0;
+}
+
+li>span{
+	font-size :12px;
+}
+
+li>span.title{
+	font-size :25px;
+}
+
+li.header{
+	color : blue;
+	background-color: yellow;
+	padding :5% 0 5% 3%;
+}
+
+li.content{
+	color : blue;
+	background-color: green;
+	padding :2% 0 2% 3%;
 }

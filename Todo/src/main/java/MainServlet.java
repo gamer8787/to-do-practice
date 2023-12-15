@@ -25,11 +25,7 @@ public class MainServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		int v1 = (int)(Math.random() * 100) + 1;
-        int v2 = (int)(Math.random() * 100) + 1;
-        int result = v1 + v2;
-        
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {      
         TodoDao dao = new TodoDao();
         List<Todo> list = dao.getTodos();
    

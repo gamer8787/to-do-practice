@@ -10,12 +10,61 @@
     </head>
 
     <body>
-    <div>안녕</div>
-    <br>
-    <c:forEach items = "${list}" var="item">
-    ${item}<br>
-    </c:forEach>
-    ${v1} + ${v2} = ${result} <br><br>
+        <header>
+            <div id = headerwrap>
+                <a id = "header" href="/Todo/todoform">새로운 TODO 등록</a>
+            </div>
+        </header>
+          
+        <section>
+            <div class = "left">
+                <ul>
+                    <li class = "TODO header">TODO</li>
+                    
+                </ul>
+            </div>
+
+            <div class = "middle">
+                <ul>
+                    <li class = "DOING header">DOING</li>
+                    
+                </ul>
+            </div>
+
+            <div class = "right">
+                <ul >
+                    <li class = "DONE header">DONE</li>
+                
+                </ul>
+            </div>
+        </section>
+        
     </body>
-    
+        <script>
+             <c:forEach items = "${list}" var="item">
+                 <c:choose>
+                     <c:when test = "${item.type == 'TODO'}">
+                        const TODOList = document.querySelectorAll(".TODO");
+                        subject = TODOList[TODOList.length-1]
+                        subject.insertAdjacentHTML("afterend","<li class = \"TODO content\"><span class = \"title\"> "
+                        + "${item.title}</span><br><span>등록날짜:${item.regDate}${item.name}, "
+                        + "우선순위 ${item.sequence}</span></li>"); 
+                     </c:when>
+		                  
+                     <c:when test = "${item.type == 'DOING'}">
+	                      const DOINGList = document.querySelectorAll(".DOING");
+		                  subject = DOINGList[DOINGList.length-1]
+		                  subject.insertAdjacentHTML("afterend","<li class = \"DOING content\"><span class = \"title\"> "
+		                  + "${item.title}</span><br><span>등록날짜:${item.regDate}${item.name}, "
+		                  + "우선순위 ${item.sequence}</span></li>"); 
+                     </c:when>
+                     <c:when test = "${item.type == 'DONE'}">
+                         
+                     </c:when>
+                     <c:otherwise>
+                         wrong type
+                     </c:otherwise>
+                 </c:choose>
+             </c:forEach>
+        </script>
 </html>
