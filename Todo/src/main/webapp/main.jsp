@@ -5,6 +5,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="./main.css">
+        <script src="test.js"></script>
         <meta charset="UTF-8">
         <title>Insert title here</title>
     </head>
@@ -38,19 +39,17 @@
                 </ul>
             </div>
         </section>
+        <script>
+                
+        </script>
         
     </body>
         <script>
              <c:forEach items = "${list}" var="item">
                  <c:choose>
-                     <c:when test = "${item.type == 'TODO'}">
-                        const TODOList = document.querySelectorAll(".TODO");
-                        subject = TODOList[TODOList.length-1]
-                        subject.insertAdjacentHTML("afterend","<li class = \"TODO content\"><span class = \"title\"> "
-                        + "${item.title}</span><br><span>등록날짜:${item.regDate}${item.name}, "
-                        + "우선순위 ${item.sequence}</span></li>"); 
+                     <c:when test = "${item.type == 'TODO'}">                     
+                        addTODO("${item}");
                      </c:when>
-		                  
                      <c:when test = "${item.type == 'DOING'}">
 	                      const DOINGList = document.querySelectorAll(".DOING");
 		                  subject = DOINGList[DOINGList.length-1]
