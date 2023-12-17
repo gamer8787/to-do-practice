@@ -102,8 +102,8 @@ public class TodoDao {
 		}
 		return todo;
 	}
-	
-	public int updateTodo(Todo todo) {
+	//해당 id를 가진 것의 type을 바꿔줌 
+	public int updateTodo(Long id, String type) {
 		int updateCount = 0;
 		
 		
@@ -116,8 +116,8 @@ public class TodoDao {
 		try(Connection conn = DriverManager.getConnection(dburl,dbUser,dbpasswd);
 				PreparedStatement ps = conn.prepareStatement(sql)){
 			
-			ps.setString(1,todo.getType());
-			ps.setLong(2, todo.getId());
+			ps.setString(1,type);
+			ps.setLong(2, id);
 			updateCount = ps.executeUpdate();
 			
 			

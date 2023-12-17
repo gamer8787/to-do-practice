@@ -8,6 +8,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 /**
  * Servlet implementation class MainServlet
  */
@@ -29,7 +31,11 @@ public class MainServlet extends HttpServlet {
         TodoDao dao = new TodoDao();
         List<Todo> list = dao.getTodos();
    
-        request.setAttribute("list", list);
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(list);
+        
+        request.setAttribute("json", json);
+//        request.setAttribute("list", list);
         RequestDispatcher requestDispatcher = request.getRequestDispatcher("/main.jsp");
         requestDispatcher.forward(request, response);
 	}

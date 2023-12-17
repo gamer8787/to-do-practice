@@ -39,31 +39,9 @@
                 </ul>
             </div>
         </section>
-        <script>
-                
-        </script>
-        
     </body>
         <script>
-             <c:forEach items = "${list}" var="item">
-                 <c:choose>
-                     <c:when test = "${item.type == 'TODO'}">                     
-                        addTODO("${item}");
-                     </c:when>
-                     <c:when test = "${item.type == 'DOING'}">
-	                      const DOINGList = document.querySelectorAll(".DOING");
-		                  subject = DOINGList[DOINGList.length-1]
-		                  subject.insertAdjacentHTML("afterend","<li class = \"DOING content\"><span class = \"title\"> "
-		                  + "${item.title}</span><br><span>등록날짜:${item.regDate}${item.name}, "
-		                  + "우선순위 ${item.sequence}</span></li>"); 
-                     </c:when>
-                     <c:when test = "${item.type == 'DONE'}">
-                         
-                     </c:when>
-                     <c:otherwise>
-                         wrong type
-                     </c:otherwise>
-                 </c:choose>
-             </c:forEach>
+        	var json =${json};
+            addTODO(json); // 서블릿에서 처음 실행할때만 나오게 하기?
         </script>
 </html>
