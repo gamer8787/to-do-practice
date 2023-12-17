@@ -5,7 +5,7 @@
 <html>
     <head>
         <link rel="stylesheet" href="./main.css">
-        <script src="test.js"></script>
+        <script src="main.js"></script>
         <meta charset="UTF-8">
         <title>Insert title here</title>
     </head>
@@ -20,8 +20,7 @@
         <section>
             <div class = "left">
                 <ul>
-                    <li class = "TODO header">TODO</li>
-                    
+                    <li class = "TODO header">TODO</li>                    
                 </ul>
             </div>
 

@@ -44,9 +44,8 @@ public class TodoTypeServlet extends HttpServlet {
 			dao.updateTodo(id, "DONE");
 		}
 		else {
-			System.out.println("do nothing");
+			dao.deleteTodo(id);
 		}
-		
 		Todo todo = dao.getTodo(id);
 		   
         ObjectMapper objectMapper = new ObjectMapper();

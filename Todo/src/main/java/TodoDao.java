@@ -13,6 +13,26 @@ public class TodoDao {
 	private static String dbUser = "connectuser";
 	private static String dbpasswd = "connect123!@#";
 	
+	
+	public int deleteTodo(Long id) {
+		int deleteCount = 0;
+		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		String sql = "delete from todo where id = ?";
+		try(Connection conn = DriverManager.getConnection(dburl,dbUser,dbpasswd);
+				PreparedStatement ps = conn.prepareStatement(sql);){				
+			ps.setLong(1,id);
+			deleteCount = ps.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		return deleteCount;
+	}
+	
 	public List<Todo> getTodos(){
 		List<Todo> list = new ArrayList<>();
 	
